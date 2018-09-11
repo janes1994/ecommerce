@@ -38,10 +38,15 @@
 .bag {
   color: whitesmoke;
   width: fit-content;
-  cursor: pointer;
-  transition: 300ms ease-in-out; }
-  .bag:hover {
-    opacity: .8; }
+  transition: 300ms ease-in-out;
+  opacity: 1;
+  transition: transform 500ms; }
+  .bag.expand {
+    opacity: 0; }
+  .bag .material-icons {
+    cursor: pointer; }
+    .bag .material-icons:hover {
+      opacity: .8; }
 
 .navlist {
   display: block;
@@ -77,12 +82,12 @@
     color: #2e98ee;
     transition: 300ms; }
     .searchnav .cancelsearch span {
-      font-size: 1.5em; }
+      font-size: 1.1em; }
     .searchnav .cancelsearch.expand {
       display: inline-block;
       position: absolute;
-      top: .5em;
-      right: 1em; }
+      top: .8em;
+      left: 70%; }
     .searchnav .cancelsearch:hover {
       opacity: .8; }
   .searchnav input {
@@ -92,13 +97,16 @@
     border-radius: 4px;
     background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/2000px-Magnifying_glass_icon.svg.png) no-repeat 0.5em 0.7em #444;
     background-size: 1.2em;
-    transition: all 500ms ease-in-out; }
+    transition: all 500ms ease-in-out;
+    color: white;
+    text-align: center;
+    font-size: 1em; }
     .searchnav input:hover::placeholder {
       color: #b6b6b6; }
+    .searchnav input:focus {
+      border: .5px solid blue; }
     .searchnav input::placeholder {
-      font-size: 1.2em;
-      color: grey;
-      padding-left: 15%; }
+      color: grey; }
     .searchnav input.expand {
       width: 60vw;
       display: flex;
@@ -138,3 +146,32 @@
         opacity: .8; }
       .searchnav .quicklinks span.expand {
         display: block; }
+
+.bagnotif {
+  width: 100vw;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 1em 3em;
+  position: fixed;
+  display: none; }
+  .bagnotif.expand {
+    display: block; }
+  .bagnotif h2 {
+    color: #7e7e7e;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 2em; }
+  .bagnotif i.material-icons {
+    color: #3479e0;
+    cursor: pointer;
+    padding-top: 4px;
+    font-size: 1.2em; }
+    .bagnotif i.material-icons:hover {
+      opacity: .8; }
+  .bagnotif span {
+    color: #4d8dee;
+    cursor: pointer;
+    margin-left: 1em;
+    font-size: .9em; }
+    .bagnotif span:hover {
+      opacity: .8; }

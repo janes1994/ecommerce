@@ -16,16 +16,15 @@ class Navbar extends Component {
             let quicklinksspan = document.querySelectorAll(".quicklinks span");
             let nav = document.querySelector(".nav");
             let cancelsearch = document.querySelector(".cancelsearch");
+            let bag = document.querySelector(".bag");
 
             for (let i of burgerchild){i.classList.toggle("change");}    
-
             navlist.classList.toggle("expand");
-
             for (let i of listspan){i.classList.toggle("expand");}
-
             searchnav.classList.toggle("expand");
+            bag.classList.toggle("expand");
 
-            inputsearch.addEventListener("click", () => {
+            inputsearch.addEventListener("focus", () => {
 
                 navlist.classList.toggle("expand");
                 for (let i of listspan){i.classList.toggle("expand");}
@@ -44,8 +43,17 @@ class Navbar extends Component {
                 for (let i of listspan){i.classList.toggle("expand");}
                 nav.style.display = "grid";
                 for (let i of quicklinksspan){i.classList.toggle("expand");}
+                inputsearch.value = "";
             })
         }
+
+        
+        function bagfunc() {
+            let bagnotif = document.querySelector(".bagnotif");
+            bagnotif.classList.toggle("expand");
+        }
+
+        
       
     return (
       <div>
@@ -57,13 +65,16 @@ class Navbar extends Component {
         </div>
 
         <div className="logo"><i className="material-icons">android</i></div>
-        <div className="bag"><i className="material-icons">add_shopping_cart</i></div>
+       
+        <div className="bag" onClick={()=>bagfunc()}>
+            <i className="material-icons">add_shopping_cart</i>
+        </div>
       </div>
 
       <div className="searchnav">
         <input type="text" placeholder="Search apple.com"></input>
         <div className="cancelsearch"><span>Cancel</span></div>
-    
+            
         <hr/>
         <div className="quicklinks">
             <span>Find a Store <hr/></span>
@@ -83,6 +94,25 @@ class Navbar extends Component {
         <span>Music <hr/></span>
         <span>support <hr/></span>
       </div>
+
+      <div className="bagnotif">
+                <h2>Your bag is empty</h2><hr/>
+                
+                <i className="material-icons">add_shopping_cart</i>
+                <span>Bag <hr/></span>
+
+                <i className="material-icons">favorite_border</i>
+                <span>Favorites <hr/></span>
+
+                <i className="material-icons">account_box</i>
+                <span>Orders <hr/></span>
+
+                <i className="material-icons">build</i>
+                <span>Account <hr/></span>
+
+                <i className="material-icons">face</i>
+                <span>Sign in <hr/></span>
+            </div>
       </div>
     );
   }

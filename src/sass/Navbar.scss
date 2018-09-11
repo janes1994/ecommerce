@@ -52,10 +52,20 @@
 .bag {
     color: whitesmoke;
     width: fit-content;
-    cursor: pointer;
     transition: 300ms ease-in-out;
-    
-    &:hover {opacity: .8;}
+    opacity: 1;
+    // transform: translateY(0);
+    transition: transform 500ms;
+
+    &.expand {
+        opacity: 0;
+        // transform: translateY(10px);
+    }
+
+    .material-icons {
+        cursor: pointer;
+        &:hover {opacity: .8;}
+    }
 }
 
 .navlist {
@@ -98,13 +108,14 @@
         cursor: pointer;
         color: rgb(46, 152, 238);
         transition:300ms;
-        span {font-size: 1.5em;}
+        span {font-size: 1.1em;}
 
         &.expand {
             display: inline-block;
             position: absolute;
-            top: .5em;
-            right: 1em;
+            top: .8em;
+            // right: 1.8em;
+            left: 70%;
         }
 
         &:hover {
@@ -121,6 +132,9 @@
         background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/2000px-Magnifying_glass_icon.svg.png) no-repeat .5em .7em #444;
         background-size: 1.2em;
         transition: all 500ms ease-in-out;
+        color: white;
+        text-align: center;
+        font-size: 1em;
 
         &:hover {
             &::placeholder {
@@ -128,11 +142,15 @@
             }
         }
 
+        &:focus {
+            border: .5px solid blue;
+        }
+
 
         &::placeholder {
-            font-size: 1.2em;
+            // font-size: 1.2em;
             color: grey;
-            padding-left: 15%;
+            // padding-left: 15%;
         }
 
         &.expand {
@@ -192,4 +210,43 @@
             }
         }
     }
+}
+
+.bagnotif {
+    width: 100vw;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 1em 3em;
+    position: fixed;
+    display: none;
+
+    &.expand {
+        display: block;
+    }
+    
+    h2 {
+        color: rgb(126, 126, 126);
+        font-size: 1em;
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    i.material-icons {
+        color: rgb(52, 121, 224);
+        cursor: pointer;
+        padding-top: 4px;
+        font-size: 1.2em;
+        
+        &:hover {opacity: .8;}
+    }
+
+    span {
+        color: rgb(77, 141, 238);            
+        cursor: pointer;
+        &:hover {opacity: .8;}
+        margin-left: 1em;
+        font-size: .9em;
+        // margin-top: 8px;
+    }
+    
 }
