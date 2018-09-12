@@ -23,6 +23,8 @@ class Navbar extends Component {
             for (let i of listspan){i.classList.toggle("expand");}
             searchnav.classList.toggle("expand");
             bag.classList.toggle("expand");
+            nav.classList.toggle("expand");
+            
 
             inputsearch.addEventListener("focus", () => {
 
